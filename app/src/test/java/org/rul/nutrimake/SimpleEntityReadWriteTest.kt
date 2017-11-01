@@ -10,8 +10,6 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.rul.nutrimake.configuration.db.TestDatabase
-import org.rul.nutrimake.dao.ClienteDao
-import org.rul.nutrimake.model.Cliente
 import java.io.IOException
 
 
@@ -20,7 +18,7 @@ import java.io.IOException
  */
 @RunWith(AndroidJUnit4::class)
 class SimpleEntityReadWriteTest {
-    private var mClienteDao: ClienteDao? = null
+    private var mClienteDao: ClienteDaoKt? = null
     private var mDb: TestDatabase? = null
 
     @Before
@@ -39,7 +37,7 @@ class SimpleEntityReadWriteTest {
     @Test
     @Throws(Exception::class)
     fun writeUserAndReadInList() {
-        val cliente : Cliente = TestUtil.createCliente()
+        val cliente : ClienteKt = TestUtil.createCliente()
         cliente.nombre = "Rul"
         cliente.apellidos = "Prueba"
         mClienteDao!!.insertAll(cliente)

@@ -32,18 +32,28 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/young_users"
+                android:text="@string/books_borrowed_by_user"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/young_users_tv"
+                android:id="@+id/books_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="8dp" />
 
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onRefreshBtClicked"
+                android:text="@string/refresh" />
+
         </LinearLayout>
+
     </ScrollView>
+
 </RelativeLayout>
