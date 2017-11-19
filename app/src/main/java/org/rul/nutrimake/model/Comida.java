@@ -17,13 +17,12 @@ import java.time.LocalDate;
 @Entity(foreignKeys = {
         @ForeignKey(entity = Alimentacion.class,
                 parentColumns = "id",
-                childColumns = "alimentacion_id")
+                childColumns = "alimentacionId")
 })
 public class Comida {
 
-    public @PrimaryKey String id;
-    @ColumnInfo(name = "alimentacion_id")
-    public int alimentacionId;
-    public int numeroDiaPlan;
+    public @PrimaryKey(autoGenerate = true) String id;
+    public Long alimentacionId;
+    public Long numeroDiaPlan;
 
 }

@@ -17,14 +17,13 @@ import java.util.Date;
 @Entity(foreignKeys = {
         @ForeignKey(entity = Cliente.class,
         parentColumns = "id",
-        childColumns = "cliente_id")
+        childColumns = "clienteId")
 })
 @TypeConverters(DateConverter.class)
 public class Analitica {
 
-    public @PrimaryKey String id;
+    public @PrimaryKey(autoGenerate = true) Long id;
     public String descripcion;
     public Date fecha;
-    @ColumnInfo(name = "cliente_id")
-    public String clienteId;
+    public Long clienteId;
 }

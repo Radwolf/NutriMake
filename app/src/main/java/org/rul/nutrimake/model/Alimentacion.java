@@ -16,13 +16,12 @@ import java.util.Date;
 
 @Entity(foreignKeys = @ForeignKey(entity = Cliente.class,
                                     parentColumns = "id",
-                                    childColumns = "cliente_id"))
+                                    childColumns = "clienteId"))
 @TypeConverters(DateConverter.class)
 public class Alimentacion {
 
-    public @PrimaryKey int id;
-    @ColumnInfo(name = "cliente_id")
-    public int clienteId;
+    public @PrimaryKey(autoGenerate = true) Long id;
+    public Long clienteId;
     public String descripcion;
     public Date fechaInicio;
     public Date fechaFin;

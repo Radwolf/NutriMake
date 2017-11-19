@@ -30,33 +30,31 @@ public class DatabaseInitializer {
         populateWithTestData(db);
     }
 
-    private static void addAnalitica(final AppDatabase db, final String id,
+    private static void addAnalitica(final AppDatabase db,
                                      final Cliente cliente, final Date fecha, final String descripcion) {
         Analitica analitica = new Analitica();
-        analitica.id = id;
         analitica.descripcion = descripcion;
         analitica.fecha = fecha;
         analitica.clienteId = cliente.id;
-        db.analiticaModel().insertAnalitica(analitica);
+        db.getAnaliticaDao().insertAnalitica(analitica);
     }
 
-    private static Cliente addCliente(final AppDatabase db, final String id, final String nombre,
-                           final String apellidos, final int edad) {
+    private static Cliente addCliente(final AppDatabase db, final String nombre,
+                           final String apellidos, final Long edad) {
         Cliente cliente = new Cliente();
-        cliente.id = id;
         cliente.nombre = nombre;
         cliente.apellidos = apellidos;
         cliente.edad = edad;
-        db.clienteModel().insertCliente(cliente);
+        db.getClienteDao().insertCliente(cliente);
         return cliente;
     }
 
     private static void populateWithTestData(final AppDatabase db) {
-        db.clienteModel().deleteAll();
-        db.analiticaModel().deleteAll();
+        db.getClienteDao().deleteAll();
+        db.getAnaliticaDao().deleteAll();
 
-        Cliente cliente1 = addCliente(db, "1", "Jason", "Seaver", 40);
-        Cliente cliente2 = addCliente(db, "2", "Mike", "Seaver", 12);
+        Cliente cliente1 = addCliente(db, "Jason", "Seaver", (long) 40);
+        Cliente cliente2 = addCliente(db, "Mike", "Seaver", (long) 12);
 
         try {
             // Loans are added with a delay, to have time for the UI to react to changes.
@@ -67,9 +65,9 @@ public class DatabaseInitializer {
             Date lastWeek = getTodayPlusDays(-7);
             Date twoWeeksAgo = getTodayPlusDays(-14);
 
-            addAnalitica(db, "1", cliente1, today, "Primera analítica");
+            addAnalitica(db, cliente1, today, "Primera analítica");
             Thread.sleep(DELAY_MILLIS);
-            addAnalitica(db, "2", cliente2, yesterday, "Primera analítica");
+            addAnalitica(db, cliente2, yesterday, "Primera analítica");
             Thread.sleep(DELAY_MILLIS);
             Log.d("DB", "Added loans");
 

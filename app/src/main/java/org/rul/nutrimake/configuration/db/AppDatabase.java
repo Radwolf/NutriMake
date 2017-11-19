@@ -8,19 +8,20 @@ import android.content.Context;
 import org.rul.nutrimake.dao.AnaliticaDao;
 import org.rul.nutrimake.dao.ClienteDao;
 import org.rul.nutrimake.model.Analitica;
+import org.rul.nutrimake.model.Biotipo;
 import org.rul.nutrimake.model.Cliente;
 
 /**
  * Created by Rul on 02/11/2017.
  */
 
-@Database(entities = {Cliente.class, Analitica.class}, version = 1)
+@Database(entities = {Cliente.class, Analitica.class, Biotipo.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
 
-    public abstract ClienteDao clienteModel();
-    public abstract AnaliticaDao analiticaModel();
+    public abstract ClienteDao getClienteDao();
+    public abstract AnaliticaDao getAnaliticaDao();
 
     public static AppDatabase getInMemoryDatabase(Context context) {
         if (INSTANCE == null) {

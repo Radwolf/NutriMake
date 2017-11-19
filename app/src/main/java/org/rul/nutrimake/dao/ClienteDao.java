@@ -17,26 +17,28 @@ import static android.arch.persistence.room.OnConflictStrategy.IGNORE;
 @Dao
 public interface ClienteDao {
 
-    @Query("select * from cliente")
-    List<Cliente> loadAllClientes();
+    @Insert(onConflict = IGNORE)
+    void insertCliente(Cliente cliente);
 
     @Query("select * from cliente where id = :id")
     Cliente loadClienteById(int id);
 
-    @Query("select * from cliente where nombre = :nombre and apellidos = :apellidos")
-    List<Cliente> findByNameAndLastName(String nombre, String apellidos);
-
-    @Insert(onConflict = IGNORE)
-    void insertCliente(Cliente cliente);
-
     @Delete
     void deleteCliente(Cliente cliente);
 
-    @Query("delete from cliente where nombre like :badName OR apellidos like :badName")
-    int deleteClientesByNombre(String badName);
-
     @Insert(onConflict = IGNORE)
     void insertOrReplaceClientes(Cliente... clientes);
+
+
+    // Otros metodos para pruebas //
+    @Query("select * from cliente")
+    List<Cliente> loadAllClientes();
+
+    @Query("select * from cliente where nombre = :nombre and apellidos = :apellidos")
+    List<Cliente> findByNameAndLastName(String nombre, String apellidos);
+
+    @Query("delete from cliente where nombre like :badName OR apellidos like :badName")
+    int deleteClientesByNombre(String badName);
 
     @Delete
     void deleteClientes(Cliente cliente1, Cliente cliente2);

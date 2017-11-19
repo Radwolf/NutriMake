@@ -50,7 +50,7 @@ public class MainActivity extends LifecycleActivity {
     private void fetchData() {
         // Note: this kind of logic should not be in an activity.
         StringBuilder sb = new StringBuilder();
-        List<Cliente> clientes = mDb.clienteModel().findYoungerThanSolution(35);
+        List<Cliente> clientes = mDb.getClienteDao().findYoungerThanSolution(35);
         for (Cliente cliente : clientes) {
             sb.append(String.format(Locale.US,
                     "%s, %s (%d)\n", cliente.apellidos, cliente.nombre, cliente.edad));

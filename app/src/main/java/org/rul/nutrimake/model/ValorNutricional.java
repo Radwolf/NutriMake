@@ -8,12 +8,10 @@ import android.arch.persistence.room.PrimaryKey;
  */
 
 @Entity
-public class Biotipo {
+public class ValorNutricional {
 
-    @PrimaryKey
-    public int biotioId;
-    public String descripcion;
-    public Long pesoCorporal;
+    public @PrimaryKey(autoGenerate = true) Long id;
+    public Long porcion;
     public Long indiceEnergia;
     public Long energiaTotal;
     public Long proteinas;

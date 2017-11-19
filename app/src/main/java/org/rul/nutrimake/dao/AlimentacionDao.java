@@ -6,13 +6,12 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.TypeConverters;
 
+import org.rul.nutrimake.model.Alimentacion;
 import org.rul.nutrimake.model.Analitica;
-import org.rul.nutrimake.model.Cliente;
 import org.rul.nutrimake.model.converter.DateConverter;
 
 import java.util.List;
 
-import static android.arch.persistence.room.OnConflictStrategy.ABORT;
 import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
 /**
@@ -20,10 +19,10 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
  */
 @Dao
 @TypeConverters(DateConverter.class)
-public interface AnaliticaDao {
+public interface AlimentacionDao {
 
-    @Query("SELECT * From analitica")
-    List<Analitica> findAll();
+    @Query("SELECT * From alimentacion")
+    List<Alimentacion> findAll();
 
     @Insert(onConflict = REPLACE)
     void insertAnalitica(Analitica analitica);
@@ -34,6 +33,6 @@ public interface AnaliticaDao {
     @Query("SELECT * FROM analitica WHERE clienteId = :clienteId")
     List<Analitica> findByCliente(Long clienteId);
 
-    @Query("SELECT * FROM analitica WHERE clienteId = :clienteId ORDER BY fecha DESC")
+    @Query("SELECT * FROM analitica WHERE clienteId = :clienteId ORDER BY fecha DESC LIMIT 1")
     Analitica getLastAnalitica(Long clienteId);
 }
