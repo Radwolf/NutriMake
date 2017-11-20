@@ -13,6 +13,7 @@ import org.rul.nutrimake.configuration.db.AppDatabase;
 import org.rul.nutrimake.dao.AnaliticaDao;
 import org.rul.nutrimake.dao.ClienteDao;
 import org.rul.nutrimake.model.Analitica;
+import org.rul.nutrimake.model.Biotipo;
 import org.rul.nutrimake.model.Cliente;
 
 import java.util.Date;
@@ -57,7 +58,9 @@ public class ClienteDaoTest extends DaoTest {
 
     @Test
     public void shouldInsertClient(){
-        Cliente cliente1 = addCliente(db, "Jason", "Seaver", (long) 40);
+        Cliente cliente1 = addCliente(db, "Jason", "Seaver", "670010101", null,
+                "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
+                (long) 1, (long) 1, false, null, (long) 0, new Biotipo());
         List clientes = clienteDao.findAll();
 
         assertEquals(1, clientes.size());
@@ -70,7 +73,9 @@ public class ClienteDaoTest extends DaoTest {
     @Test
     public void shouldDeleteCliente(){
 
-        Cliente cliente1 = addCliente(db, "Jason", "Seaver", (long) 40);
+        Cliente cliente1 = addCliente(db, "Jason", "Seaver", "670010101", null,
+                "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
+                (long) 1, (long) 1, false, null, (long) 0, new Biotipo());
         List clientes = clienteDao.findYoungerThan(40);
 
         assertEquals(1, clientes.size());

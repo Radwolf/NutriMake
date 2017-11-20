@@ -1,10 +1,12 @@
 package org.rul.nutrimake.model;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverter;
+import android.arch.persistence.room.TypeConverters;
+
+import org.rul.nutrimake.model.converter.DateConverter;
 
 import java.util.Date;
 
@@ -13,27 +15,29 @@ import java.util.Date;
  */
 
 @Entity
-class Cliente {
+@TypeConverters(DateConverter.class)
+public class Cliente {
 
-    @PrimaryKey(autoGenerate = true) Long id;
-    String nombre;
-    String apellidos;
-    String telefono;
-    String email;
-    String documentoIdentidad;
+    public @PrimaryKey(autoGenerate = true) Long id;
+    public String nombre;
+    public String apellidos;
+    public String telefono;
+    public String email;
+    public String documentoIdentidad;
     //Enum o lista_valor
-    String sexo;
-    Long edad;
-    Long peso;
-    Long altura;
-    Long imc;
-    Long benedite;
-    boolean ejercicio;
-    String tipoEjercicio;
-    Long frecuenciaEjercicio;
+    public String sexo;
+    public Long edad;
+    public Long peso;
+    public Long altura;
+    public Long imc;
+    public Long benedite;
+    public boolean ejercicio;
+    //Enum o lista_valor
+    public String tipoEjercicio;
+    public Long frecuenciaEjercicio;
     @Embedded
-    Biotipo biotipo;
-    
-    Date fechaAlta;
-    Date fecheBaja;
+    public Biotipo biotipo;
+
+    public Date fechaAlta;
+    public Date fecheBaja;
 }

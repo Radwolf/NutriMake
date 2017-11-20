@@ -19,12 +19,12 @@ import java.time.LocalDate;
                 parentColumns = "id",
                 childColumns = "alimentacionId")
 })
-class Comida {
+public class Comida {
 
     @PrimaryKey(autoGenerate = true) String id;
-    Long alimentacionId;
+    public Long alimentacionId;
     //Enum o lista_valor
-    String tipoComida;
-    Long numeroDiaPlan;
+    public String tipoComida;
+    public Long numeroDiaPlan;
 
 }

@@ -21,6 +21,6 @@ public interface BiotipoDao {
     List<Biotipo> findAll();
 
     //Recupera un biotipo por Id
-    @Query("SELECT * FROM biotipo WHERE id = :id")
+    @Query("SELECT * FROM biotipo WHERE biotioId = :id")
     Biotipo findById(Long id);
 }

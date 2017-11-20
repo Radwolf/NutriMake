@@ -10,6 +10,7 @@ import org.rul.nutrimake.model.Cliente;
 import java.util.List;
 
 import static android.arch.persistence.room.OnConflictStrategy.IGNORE;
+import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
 /**
  * Created by Rul on 02/11/2017.

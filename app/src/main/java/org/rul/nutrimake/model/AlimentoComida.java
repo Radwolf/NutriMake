@@ -16,9 +16,9 @@ import android.arch.persistence.room.PrimaryKey;
                         @ForeignKey(entity = Comida.class,
                         parentColumns = "id",
                         childColumns = "comidaId")})
-class AlimentoComida {
+public class AlimentoComida {
 
-    Long alimentoId;
-    Long comidaId;
-    Long cantidad;
+    public Long alimentoId;
+    public Long comidaId;
+    public Long cantidad;
 }

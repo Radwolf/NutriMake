@@ -36,7 +36,7 @@ public class DatabaseInitializer {
         analitica.descripcion = descripcion;
         analitica.fecha = fecha;
         analitica.clienteId = cliente.id;
-        db.getAnaliticaDao().insertAnalitica(analitica);
+        db.getAnaliticaDao().insert(analitica);
     }
 
     private static Cliente addCliente(final AppDatabase db, final String nombre,
@@ -45,7 +45,7 @@ public class DatabaseInitializer {
         cliente.nombre = nombre;
         cliente.apellidos = apellidos;
         cliente.edad = edad;
-        db.getClienteDao().insertCliente(cliente);
+        db.getClienteDao().insert(cliente);
         return cliente;
     }
 
