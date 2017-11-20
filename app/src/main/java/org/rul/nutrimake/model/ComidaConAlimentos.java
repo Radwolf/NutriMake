@@ -14,17 +14,12 @@ import java.time.LocalDate;
  * Created by Rul on 02/11/2017.
  */
 
-@Entity(foreignKeys = {
-        @ForeignKey(entity = Alimentacion.class,
-                parentColumns = "id",
-                childColumns = "alimentacionId")
-})
-class Comida {
+class ComidaConAlimentos {
 
-    @PrimaryKey(autoGenerate = true) String id;
-    Long alimentacionId;
-    //Enum o lista_valor
-    String tipoComida;
-    Long numeroDiaPlan;
+    @Embedded
+    Comida comida;
+    @Relation(parentColumn = "id", entityColumn = "comidaId", entity = Alimento.class)
+    List<Alimentos> alimentos;
+    Long cantidad;
 
 }

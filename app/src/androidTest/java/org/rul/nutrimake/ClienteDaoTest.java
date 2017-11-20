@@ -58,7 +58,7 @@ public class ClienteDaoTest extends DaoTest {
     @Test
     public void shouldInsertClient(){
         Cliente cliente1 = addCliente(db, "Jason", "Seaver", (long) 40);
-        List clientes = clienteDao.loadAllClientes();
+        List clientes = clienteDao.findAll();
 
         assertEquals(1, clientes.size());
         Cliente dbCliente = (Cliente) clientes.get(0);
@@ -75,7 +75,7 @@ public class ClienteDaoTest extends DaoTest {
 
         assertEquals(1, clientes.size());
         clienteDao.deleteAll();
-        clientes = clienteDao.loadAllClientes();
+        clientes = clienteDao.findAll();
         assertEquals(0, clientes.size());
     }
 }

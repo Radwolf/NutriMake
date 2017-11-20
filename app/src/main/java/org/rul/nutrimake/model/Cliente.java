@@ -6,25 +6,34 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.util.Date;
+
 /**
  * Created by Rul on 02/11/2017.
  */
 
 @Entity
-public class Cliente {
+class Cliente {
 
-    public @PrimaryKey(autoGenerate = true) Long id;
-    public String nombre;
-    public String apellidos;
-    public String sexo;
-    public Long edad;
-    public Long peso;
-    public Long altura;
-    public Long imc;
-    public Long benedite;
-    public boolean ejercicio;
-    public String tipoEjercicio;
-    public Long frecuenciaEjercicio;
+    @PrimaryKey(autoGenerate = true) Long id;
+    String nombre;
+    String apellidos;
+    String telefono;
+    String email;
+    String documentoIdentidad;
+    //Enum o lista_valor
+    String sexo;
+    Long edad;
+    Long peso;
+    Long altura;
+    Long imc;
+    Long benedite;
+    boolean ejercicio;
+    String tipoEjercicio;
+    Long frecuenciaEjercicio;
     @Embedded
-    public Biotipo biotipo;
+    Biotipo biotipo;
+    
+    Date fechaAlta;
+    Date fecheBaja;
 }

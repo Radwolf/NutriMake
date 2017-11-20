@@ -7,7 +7,6 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.TypeConverters;
 
 import org.rul.nutrimake.model.Alimentacion;
-import org.rul.nutrimake.model.Analitica;
 import org.rul.nutrimake.model.converter.DateConverter;
 
 import java.util.List;
@@ -21,18 +20,28 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 @TypeConverters(DateConverter.class)
 public interface AlimentacionDao {
 
-    @Query("SELECT * From alimentacion")
+    //Añadir una Alimentación a un Cliente
+    @Insert(onConflict = REPLACE) //Modificamos una Alimentación
+    void insert(Alimentacion alimentacion);
+
+    //Lista todas las Alimentaciones registradas
+    @Query("SELECT * FROM alimentacion")
     List<Alimentacion> findAll();
 
-    @Insert(onConflict = REPLACE)
-    void insertAnalitica(Analitica analitica);
+    //Recupera una Alimentación por Id
+    @Query("SELECT * FROM alimentacion WHERE id = :id")
+    Alimentacion findById(Long id);
+    
+    //Lista de todas las Alimentaciones de un Cliente
+    @Query("SELECT * FROM alimentacion WHERE clienteId = :clienteId")
+    List<Alimentacion> findByCliente(Long clienteId);
+    
+    //Recupera la última Alimentación activa
+    @Query("SELECT * FROM analitica WHERE clienteId = :clienteId AND fechaFin IS null")
+    Alimentacion findByClienteLastAlimentacion(Long clienteId);
+    
+    //Eliminar una Alimentación de un Cliente
+    @Delete
+    void delete(Alimentacion alimentacion);
 
-    @Query("DELETE FROM analitica")
-    void deleteAll();
-
-    @Query("SELECT * FROM analitica WHERE clienteId = :clienteId")
-    List<Analitica> findByCliente(Long clienteId);
-
-    @Query("SELECT * FROM analitica WHERE clienteId = :clienteId ORDER BY fecha DESC LIMIT 1")
-    Analitica getLastAnalitica(Long clienteId);
 }

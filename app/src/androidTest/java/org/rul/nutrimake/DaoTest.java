@@ -18,7 +18,7 @@ class DaoTest {
         analitica.descripcion = descripcion;
         analitica.fecha = fecha;
         analitica.clienteId = cliente.id;
-        db.getAnaliticaDao().insertAnalitica(analitica);
+        db.getAnaliticaDao().insert(analitica);
     }
 
     protected Cliente addCliente(final AppDatabase db, final String nombre,
@@ -27,7 +27,7 @@ class DaoTest {
         cliente.nombre = nombre;
         cliente.apellidos = apellidos;
         cliente.edad = edad;
-        db.getClienteDao().insertCliente(cliente);
+        db.getClienteDao().insert(cliente);
         return db.getClienteDao().findByNameAndLastName(nombre, apellidos).get(0);
     }
 }
