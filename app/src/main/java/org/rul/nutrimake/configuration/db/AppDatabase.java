@@ -5,9 +5,11 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+import org.rul.nutrimake.dao.AlimentacionDao;
 import org.rul.nutrimake.dao.AnaliticaDao;
 import org.rul.nutrimake.dao.BiotipoDao;
 import org.rul.nutrimake.dao.ClienteDao;
+import org.rul.nutrimake.model.Alimentacion;
 import org.rul.nutrimake.model.Analitica;
 import org.rul.nutrimake.model.Biotipo;
 import org.rul.nutrimake.model.Cliente;
@@ -16,14 +18,15 @@ import org.rul.nutrimake.model.Cliente;
  * Created by Rul on 02/11/2017.
  */
 
-@Database(entities = {Cliente.class, Analitica.class, Biotipo.class}, version = 1)
+@Database(entities = {Cliente.class, Analitica.class, Biotipo.class, Alimentacion.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
 
-    public abstract ClienteDao getClienteDao();
+    public abstract AlimentacionDao getAlimentacionDao();
     public abstract AnaliticaDao getAnaliticaDao();
     public abstract BiotipoDao getBiotipoDao();
+    public abstract ClienteDao getClienteDao();
 
     public static AppDatabase getInMemoryDatabase(Context context) {
         if (INSTANCE == null) {

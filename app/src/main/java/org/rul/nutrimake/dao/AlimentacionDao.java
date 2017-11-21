@@ -38,7 +38,7 @@ public interface AlimentacionDao {
     List<Alimentacion> findByCliente(Long clienteId);
     
     //Recupera la última Alimentación activa
-    @Query("SELECT * FROM analitica WHERE clienteId = :clienteId AND fechaFin IS null")
+    @Query("SELECT * FROM alimentacion WHERE clienteId = :clienteId AND fechaFin IS null")
     Alimentacion findByClienteLastAlimentacion(Long clienteId);
     
     //Eliminar una Alimentación de un Cliente
