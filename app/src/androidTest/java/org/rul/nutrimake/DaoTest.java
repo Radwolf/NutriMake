@@ -5,6 +5,8 @@ import org.rul.nutrimake.model.Alimentacion;
 import org.rul.nutrimake.model.Analitica;
 import org.rul.nutrimake.model.Biotipo;
 import org.rul.nutrimake.model.Cliente;
+import org.rul.nutrimake.model.ClienteCreencia;
+import org.rul.nutrimake.model.Creencia;
 
 import java.util.Date;
 
@@ -23,6 +25,19 @@ class DaoTest {
         db.getAnaliticaDao().insert(analitica);
     }
 
+    protected void addClienteCreencia(final AppDatabase db, final Cliente cliente, final Creencia creencia){
+        ClienteCreencia clienteCreencia = new ClienteCreencia();
+        clienteCreencia.clienteId = cliente.id;
+        clienteCreencia.creenciaId = creencia.id;
+        db.getClienteCreenciaDao().insert(clienteCreencia);
+    }
+
+    protected void addCreencia(final AppDatabase db, final String nombre){
+        Creencia creencia = new Creencia();
+        creencia.nombre = nombre;
+        db.getCreenciaDao().insert(creencia);
+    }
+
     protected void addAlimentacion(final AppDatabase db,
                                 final Cliente cliente, final String descripcion, final boolean activa,
                                    final Date fechaInicio, final Date fechaFin) {
@@ -34,7 +49,6 @@ class DaoTest {
         alimentacion.fechaFin = fechaFin;
         db.getAlimentacionDao().insert(alimentacion);
     }
-
 
     protected Cliente addCliente(final AppDatabase db, final String nombre,
                                  final String apellidos, final String telefono,
