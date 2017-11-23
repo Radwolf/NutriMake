@@ -10,13 +10,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.rul.nutrimake.configuration.db.AppDatabase;
-import org.rul.nutrimake.dao.AnaliticaDao;
 import org.rul.nutrimake.dao.ClienteDao;
-import org.rul.nutrimake.model.Analitica;
+import org.rul.nutrimake.model.Alimento;
 import org.rul.nutrimake.model.Biotipo;
 import org.rul.nutrimake.model.Cliente;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
@@ -29,7 +28,6 @@ import static junit.framework.Assert.assertNotNull;
 public class ClienteDaoTest extends DaoTest {
 
     private ClienteDao clienteDao;
-    private AnaliticaDao analiticaDao;
     private AppDatabase db;
 
     @Before
@@ -37,7 +35,6 @@ public class ClienteDaoTest extends DaoTest {
         Context context = InstrumentationRegistry.getTargetContext();
         db = Room.inMemoryDatabaseBuilder(context, AppDatabase.class).build();
         clienteDao = db.getClienteDao();
-        analiticaDao = db.getAnaliticaDao();
     }
 
     @After
@@ -53,14 +50,18 @@ public class ClienteDaoTest extends DaoTest {
     @Test
     public void shouldCreateDao(){
         assertNotNull(clienteDao);
-        assertNotNull(analiticaDao);
     }
 
     @Test
     public void shouldInsertClient(){
+        Biotipo biotipo = addBiotipo(db, 1L, "Mayores 35 Hombres", 1L,
+                1L, 1L, 1L, 1L, 1L, 1L,
+                1L, 1L, 1L, 1L, 1L, 1L, 1L,
+                1L, 1L, 1L, 1L, 1L, 1L, 1L,
+                1L, 1L, 1L, 1L, 1L, 1L);
         Cliente cliente1 = addCliente(db, "Jason", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
-                (long) 1, (long) 1, false, null, (long) 0, new Biotipo());
+                (long) 1, (long) 1, false, null, (long) 0, biotipo);
         List clientes = clienteDao.findAll();
 
         assertEquals(1, clientes.size());
@@ -72,15 +73,35 @@ public class ClienteDaoTest extends DaoTest {
 
     @Test
     public void shouldDeleteCliente(){
-
+        Biotipo biotipo = addBiotipo(db, 1L, "Mayores 35 Hombres", 1L,
+                1L, 1L, 1L, 1L, 1L, 1L,
+                1L, 1L, 1L, 1L, 1L, 1L, 1L,
+                1L, 1L, 1L, 1L, 1L, 1L, 1L,
+                1L, 1L, 1L, 1L, 1L, 1L);
         Cliente cliente1 = addCliente(db, "Jason", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
-                (long) 1, (long) 1, false, null, (long) 0, new Biotipo());
+                (long) 1, (long) 1, false, null, (long) 0, biotipo);
         List clientes = clienteDao.findYoungerThan(40);
 
         assertEquals(1, clientes.size());
         clienteDao.deleteAll();
         clientes = clienteDao.findAll();
         assertEquals(0, clientes.size());
+    }
+
+    @Test
+    public void shouldInsertClientNoGustaAliemtentos(){
+        Biotipo biotipo = addBiotipo(db, 1L, "Mayores 35 Hombres", 1L,
+                1L, 1L, 1L, 1L, 1L, 1L,
+                1L, 1L, 1L, 1L, 1L, 1L, 1L,
+                1L, 1L, 1L, 1L, 1L, 1L, 1L,
+                1L, 1L, 1L, 1L, 1L, 1L);
+        Cliente cliente = addCliente(db, "Jason", "Seaver", "670010101", null,
+                "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
+                (long) 1, (long) 1, false, null, (long) 0, biotipo);
+        List<Alimento> alimentos = new ArrayList<>();
+        alimentos.add(addAlimento(db, 1L, "Aguacate"));
+        alimentos.add(addAlimento(db, 2L, "Platano"));
+
     }
 }

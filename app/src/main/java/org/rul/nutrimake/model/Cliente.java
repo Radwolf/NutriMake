@@ -2,6 +2,8 @@ package org.rul.nutrimake.model;
 
 import android.arch.persistence.room.Embedded;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverter;
 import android.arch.persistence.room.TypeConverters;
@@ -9,12 +11,17 @@ import android.arch.persistence.room.TypeConverters;
 import org.rul.nutrimake.model.converter.DateConverter;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Rul on 02/11/2017.
  */
 
-@Entity
+@Entity(foreignKeys = {
+        @ForeignKey(entity = Biotipo.class,
+                parentColumns = "id",
+                childColumns = "biotipoId")
+})
 @TypeConverters(DateConverter.class)
 public class Cliente {
 
@@ -35,9 +42,9 @@ public class Cliente {
     //Enum o lista_valor
     public String tipoEjercicio;
     public Long frecuenciaEjercicio;
-    @Embedded
-    public Biotipo biotipo;
+    public Long biotipoId;
 
     public Date fechaAlta;
     public Date fecheBaja;
+
 }

@@ -10,7 +10,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class ValorNutricional {
 
-    public @PrimaryKey(autoGenerate = true) Long id;
+    public @PrimaryKey(autoGenerate = true) Long valorNutriId;
     public Long porcion;
     public Long indiceEnergia;
     public Long energiaTotal;

@@ -5,6 +5,7 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
+import org.rul.nutrimake.model.Alimento;
 import org.rul.nutrimake.model.Cliente;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public interface ClienteDao {
     //Nuevo Cliente    
     @Insert(onConflict = REPLACE) //Modificar datos Cliente
     void insert(Cliente cliente);
-    
+
     //Lista Clientes
     @Query("select * from cliente")
     List<Cliente> findAll();

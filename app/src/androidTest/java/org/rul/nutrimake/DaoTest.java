@@ -2,6 +2,7 @@ package org.rul.nutrimake;
 
 import org.rul.nutrimake.configuration.db.AppDatabase;
 import org.rul.nutrimake.model.Alimentacion;
+import org.rul.nutrimake.model.Alimento;
 import org.rul.nutrimake.model.Analitica;
 import org.rul.nutrimake.model.Biotipo;
 import org.rul.nutrimake.model.Cliente;
@@ -72,13 +73,13 @@ class DaoTest {
         cliente.ejercicio = ejercicio;
         cliente.tipoEjercicio = tipoEjercicio;
         cliente.frecuenciaEjercicio = frecuenciaEjercicio;
-        cliente.biotipo = biotipo;
+        cliente.biotipoId = biotipo.id;
         cliente.fechaAlta = new Date();
         db.getClienteDao().insert(cliente);
         return db.getClienteDao().findByNameAndLastName(nombre, apellidos).get(0);
     }
 
-    protected Biotipo createBiotipo(final int biotioId, final String descripcion,
+    protected Biotipo addBiotipo(final AppDatabase db, final Long id, final String descripcion,
                                  final Long pesoCorporal, final Long indiceEnergia, final Long energiaTotal,
                                  final Long proteinas, final Long lipidos, final Long grasasSaturadas,
                                  final Long grasasMonoin, final Long grasasPoliin, final Long colesterol,
@@ -89,7 +90,7 @@ class DaoTest {
                                  final Long vitaminaB1, final Long vitaminaB2, final Long niacina,
                                  final Long acidoFolico, final Long vitaminaB12, final Long vitaminaC) {
         Biotipo biotipo = new Biotipo();
-        biotipo.biotioId = biotioId;
+        biotipo.id = id;
         biotipo.descripcion = descripcion;
         biotipo.pesoCorporal = pesoCorporal;
         biotipo.indiceEnergia = indiceEnergia;
@@ -118,9 +119,16 @@ class DaoTest {
         biotipo.acidoFolico = acidoFolico;
         biotipo.vitaminaB12 = vitaminaB12;
         biotipo.vitaminaC = vitaminaC;
-        return biotipo;
+        db.getBiotipoDao().insert(biotipo);
+        return db.getBiotipoDao().findById(id);
     }
 
-
+    protected Alimento addAlimento(final AppDatabase db, final Long id, final String nombre){
+        Alimento alimento =  new Alimento();
+        alimento.id = id;
+        alimento.nombre = nombre;
+        db.getAlimentoDao().insert(alimento);
+        return alimento;
+    }
 }
 
