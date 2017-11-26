@@ -1,6 +1,6 @@
 package org.rul.nutrimake;
 
-import android.arch.lifecycle.LifecycleActivity;
+/*import android.arch.lifecycle.LifecycleActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -11,11 +11,7 @@ import org.rul.nutrimake.model.Cliente;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Created by Rul on 02/11/2017.
- */
-
-public class MainActivity extends LifecycleActivity {
+public class OldMainActivity extends LifecycleActivity {
 
     private AppDatabase mDb;
 
@@ -58,3 +54,4 @@ public class MainActivity extends LifecycleActivity {
         misClientes.setText(sb);
     }
 }
+*/

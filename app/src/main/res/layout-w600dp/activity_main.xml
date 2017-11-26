@@ -9,10 +9,29 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <org.rul.nutrimake.ui.widget.ContainersLayout
-        android:id="@+id/activity_main__containers_layout"
+    <FrameLayout
+        android:id="@+id/activity_main__insets"
+        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/activity_main__nav_side"
+            android:layout_width="@dimen/container_horizontal_padding"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp"
+            app:itemBackground="@android:color/transparent"
+            app:headerLayout="@layout/view_side_header"
+            app:menu="@menu/side_main"/>
+
+        <org.rul.nutrimake.ui.widget.ContainersLayout
+            android:id="@+id/activity_main__containers_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/activity_main__nav"
