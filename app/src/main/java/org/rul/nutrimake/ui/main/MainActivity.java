@@ -77,7 +77,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Nav
 
         presenter.attachView(this);
         if (savedInstanceState == null) {
-            presenter.clickPeople();
+            presenter.clickCliente();
         }
     }
 
@@ -133,6 +133,14 @@ public class MainActivity extends BaseActivity implements MainContract.View, Nav
     }
 
     @Override
+    public void highlightCliente() {
+        navigationView.setCheckedItem(R.id.menu_main_nav__people);
+        if (navigationSideView != null) {
+            navigationSideView.setCheckedItem(R.id.menu_main_nav__people);
+        }
+    }
+
+    @Override
     public void highlightPeople() {
         navigationView.setCheckedItem(R.id.menu_main_nav__people);
         if (navigationSideView != null) {
@@ -170,7 +178,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Nav
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_main_nav__people:
-                presenter.clickPeople();
+                presenter.clickCliente();
                 break;
 
             case R.id.menu_main_nav__home_feed:

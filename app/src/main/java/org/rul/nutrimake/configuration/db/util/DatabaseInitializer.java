@@ -69,14 +69,14 @@ public class DatabaseInitializer {
         db.getAlimentacionDao().insert(alimentacion);
     }
 
-    private static Cliente addCliente(final AppDatabase db, final String nombre,
+    private static Cliente addCliente(final AppDatabase db, final Long id, final String nombre,
                                  final String apellidos, final String telefono,
                                  final String email, final String documentoIdentidad,
                                  final String sexo, final Long edad, final Long peso,
                                  final Long altura, final Long imc, final Long benedite,
                                  final boolean ejercicio, final String tipoEjercicio,
                                  final Long frecuenciaEjercicio, final Biotipo biotipo) {
-        Cliente cliente = new Cliente();
+        Cliente cliente = new Cliente(id);
         cliente.nombre = nombre;
         cliente.apellidos = apellidos;
         cliente.telefono = telefono;
@@ -150,18 +150,18 @@ public class DatabaseInitializer {
     }
 
     private static void populateWithTestData(final AppDatabase db) {
-        db.getClienteDao().deleteAll();
         db.getAnaliticaDao().deleteAll();
+        db.getClienteDao().deleteAll();
 
         Biotipo biotipo = addBiotipo(db, 1L, "Mayores 35 Hombres", 1L,
                 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L);
-        Cliente cliente1 = addCliente(db, "Jason", "Seaver", "670010101", null,
+        Cliente cliente1 = addCliente(db, 1L, "Jason", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, biotipo);
-        Cliente cliente2 = addCliente(db, "Mike", "Seaver", "670010101", null,
+        Cliente cliente2 = addCliente(db, 2L, "Mike", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 12, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, biotipo);
 

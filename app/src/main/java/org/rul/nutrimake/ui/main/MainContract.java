@@ -2,6 +2,7 @@ package org.rul.nutrimake.ui.main;
 
 
 import org.rul.nutrimake.data.Person;
+import org.rul.nutrimake.model.Cliente;
 import org.rul.nutrimake.ui.util.BaseNavigator;
 import org.rul.nutrimake.ui.util.BasePresenter;
 import org.rul.nutrimake.ui.util.BaseView;
@@ -16,6 +17,10 @@ public interface MainContract {
         void goToHomeFeed();
 
         void goToPeople();
+
+        void goToCliente();
+
+        void goToClienteDetails(Cliente cliente);
 
         void goToPersonDetails(Person person);
 
@@ -38,6 +43,8 @@ public interface MainContract {
 
         void highlightHomeFeed();
 
+        void highlightCliente();
+
         void highlightPeople();
 
         void highlightFavorites();
@@ -51,6 +58,8 @@ public interface MainContract {
     }
 
     interface Presenter extends BasePresenter<View> {
+
+        void clickCliente();
 
         void clickHomeFeed();
 

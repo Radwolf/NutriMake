@@ -36,6 +36,15 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
+    public void clickCliente() {
+        if (view != null) {
+            view.highlightCliente();
+            view.closeDrawer();
+        }
+        navigator.goToCliente();
+    }
+
+    @Override
     public void clickPeople() {
         if (view != null) {
             view.highlightPeople();

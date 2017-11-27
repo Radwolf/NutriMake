@@ -10,6 +10,8 @@ import org.rul.nutrimake.model.Cliente;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
+
 import static android.arch.persistence.room.OnConflictStrategy.IGNORE;
 import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
@@ -26,6 +28,10 @@ public interface ClienteDao {
     //Lista Clientes
     @Query("select * from cliente")
     List<Cliente> findAll();
+
+    //Lista Clientes
+    @Query("select * from cliente")
+    Flowable<List<Cliente>> fFindAll();
     
     //Recuperar un Cliente por id
     @Query("select * from cliente where id = :id")

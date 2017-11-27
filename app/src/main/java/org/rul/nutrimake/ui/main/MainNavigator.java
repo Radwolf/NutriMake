@@ -5,6 +5,9 @@ import android.support.v4.app.FragmentTransaction;
 
 import org.rul.nutrimake.R;
 import org.rul.nutrimake.data.Person;
+import org.rul.nutrimake.model.Cliente;
+import org.rul.nutrimake.ui.cliente.ClienteFragment;
+import org.rul.nutrimake.ui.clientedetails.ClienteDetailsFragment;
 import org.rul.nutrimake.ui.favorites.FavoritesFragment;
 import org.rul.nutrimake.ui.homefeed.HomeFeedFragment;
 import org.rul.nutrimake.ui.map.MapFragment;
@@ -59,6 +62,27 @@ public class MainNavigator implements MainContract.Navigator {
         mainActivity.getContainersLayout().setState(State.SINGLE_COLUMN_MASTER);
         HomeFeedFragment fragment = HomeFeedFragment.newInstance();
         mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.activity_main__frame_master, fragment, TAG_MASTER).commitNow();
+    }
+
+    @Override
+    public void goToCliente() {
+        clearDetails();
+        mainActivity.getCustomAppBar().setState(State.TWO_COLUMNS_EMPTY);
+        mainActivity.getContainersLayout().setState(State.TWO_COLUMNS_EMPTY);
+        ClienteFragment master = ClienteFragment.newInstance();
+        mainActivity.getSupportFragmentManager().beginTransaction().replace(R.id.activity_main__frame_master, master, TAG_MASTER).commitNow();
+    }
+
+    @Override
+    public void goToClienteDetails(Cliente cliente) {
+        mainActivity.getCustomAppBar().setState(State.TWO_COLUMNS_WITH_DETAILS);
+        mainActivity.getContainersLayout().setState(State.TWO_COLUMNS_WITH_DETAILS);
+        ClienteDetailsFragment fragment = ClienteDetailsFragment.newInstance(cliente);
+        mainActivity.getSupportFragmentManager()
+                .beginTransaction()
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .replace(R.id.activity_main__frame_details, fragment, TAG_DETAILS)
+                .commitNow();
     }
 
     @Override
