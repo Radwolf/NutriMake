@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:background="@color/black_transparent_12p">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/fragment_cliente_details__toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"/>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/first_keyline">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:paddingTop="16dp"
+            android:id="@+id/rel_layaout_telefono">
+
+            <ImageView
+                android:id="@+id/imageView_telefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_call_black_24dp" />
+
+            <com.actinarium.aligned.TextView
+                android:id="@+id/fragment_cliente_details__telefono"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/imageView_telefono"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/imageView_telefono"
+                android:text="670 04 09 00"
+                android:textSize="14sp"
+                app:lastLineDescent="8sp"
+                app:leading="24sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:paddingTop="16dp"
+            android:id="@+id/rel_layout_email"
+            android:layout_below="@id/rel_layaout_telefono">
+
+            <ImageView
+                android:id="@+id/imageView_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:src="@drawable/ic_email_black_24dp" />
+
+            <com.actinarium.aligned.TextView
+                android:id="@+id/fragment_cliente_details__email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/imageView_email"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/imageView_email"
+                android:text="raul.gomo@gmail.com"
+                android:textSize="14sp"
+                app:lastLineDescent="8sp"
+                app:leading="24sp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</LinearLayout>

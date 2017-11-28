@@ -8,7 +8,6 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import org.rul.nutrimake.R;
-import org.rul.nutrimake.data.Person;
 import org.rul.nutrimake.injection.Injection;
 import org.rul.nutrimake.model.Cliente;
 import org.rul.nutrimake.ui.AppViewModel;

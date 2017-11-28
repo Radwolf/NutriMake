@@ -25,8 +25,9 @@ public class ClienteDetailsFragment extends Fragment {
 
     private static final String KEY_CLIENTE = "key_cliente";
 
-    @BindView(R.id.fragment_person_details__toolbar) Toolbar toolbar;
-    @BindView(R.id.fragment_person_details__description) TextView description;
+    @BindView(R.id.fragment_cliente_details__toolbar) Toolbar toolbar;
+    @BindView(R.id.fragment_cliente_details__telefono) TextView telefono;
+    @BindView(R.id.fragment_cliente_details__email) TextView email;
 
     private Cliente cliente;
 
@@ -41,7 +42,7 @@ public class ClienteDetailsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_person_details, container, false);
+        return inflater.inflate(R.layout.fragment_cliente_details, container, false);
     }
 
     @Override
@@ -76,6 +77,24 @@ public class ClienteDetailsFragment extends Fragment {
 
     private void setCliente(Cliente cliente) {
         toolbar.setTitle(String.format("%s %s", cliente.nombre, cliente.apellidos));
-        description.setText(cliente.documentoIdentidad);
+        telefono.setText(cliente.telefono);
+        email.setText(cliente.email);
+/*
+        public String telefono;
+        public String email;
+        public String documentoIdentidad;
+        //Enum o lista_valor
+        public String sexo;
+        public Long edad;
+        public Long peso;
+        public Long altura;
+        public Long imc;
+        public Long benedite;
+        public boolean ejercicio;
+        //Enum o lista_valor
+        public String tipoEjercicio;
+        public Long frecuenciaEjercicio;
+        public Long biotipoId;
+        */
     }
 }
