@@ -158,10 +158,10 @@ public class DatabaseInitializer {
                 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L);
-        Cliente cliente1 = addCliente(db, 1L, "Jason", "Seaver", "670010101", null,
+        Cliente cliente1 = addCliente(db, 1L, "Jason", "Seaver", "670040901", "rul@rul.rul",
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, biotipo);
-        Cliente cliente2 = addCliente(db, 2L, "Mike", "Seaver", "670010101", null,
+        Cliente cliente2 = addCliente(db, 2L, "Mike", "Seaver", "670040999", "erik@erik.erik",
                 "12345678Z", "HOMBRE", (long) 12, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, biotipo);
 
