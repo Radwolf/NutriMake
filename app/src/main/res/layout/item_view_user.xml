@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.rul.nutrimake.ui.people.PersonView
+<org.rul.nutrimake.ui.cliente.ClienteView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

@@ -4,6 +4,7 @@ import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import org.rul.nutrimake.R;
@@ -50,8 +51,8 @@ public class ClientePresenter extends LifecycleActivity implements ClienteContra
         this.navigator = navigator;
         this.context = context;
 
-        mViewModelFactory = Injection.provideViewModelFactory(this);
-        mViewModel = ViewModelProviders.of(this, mViewModelFactory).get(AppViewModel.class);
+        mViewModelFactory = Injection.provideViewModelFactory(context);
+        mViewModel = ViewModelProviders.of((FragmentActivity) context, mViewModelFactory).get(AppViewModel.class);
 
         names = new ArrayList<>();
         names.add("Nolan Mcfetridge");
@@ -97,12 +98,13 @@ public class ClientePresenter extends LifecycleActivity implements ClienteContra
         mDisposable.add(mViewModel.getClientes()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(clientes ->  clientesList = clientes,
-                        throwable -> Log.e(TAG, "Unable to update username", throwable)));
+                .subscribe(clientes -> {
+                    clientesList = clientes;
+                    if (view != null) {
+                        view.showClienteList(clientesList);
+                    }
+                },throwable -> Log.e(TAG, "Unable to update username", throwable)));
 
-        if (view != null) {
-            view.showClienteList(clientesList);
-        }
     }
 
     @Override

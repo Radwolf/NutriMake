@@ -14,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.rul.nutrimake.R;
+import org.rul.nutrimake.configuration.db.AppDatabase;
+import org.rul.nutrimake.configuration.db.util.DatabaseInitializer;
 import org.rul.nutrimake.injection.app.ApplicationComponent;
 import org.rul.nutrimake.injection.main.DaggerMainComponent;
 import org.rul.nutrimake.injection.main.MainComponent;
@@ -28,6 +30,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements MainContract.View, NavigationView.OnNavigationItemSelectedListener {
+
+    private AppDatabase mDb;
 
     @Inject MainContract.Presenter presenter;
     @Inject MainContract.Navigator navigator;
@@ -79,6 +83,16 @@ public class MainActivity extends BaseActivity implements MainContract.View, Nav
         if (savedInstanceState == null) {
             presenter.clickCliente();
         }
+
+
+
+        mDb = AppDatabase.getInMemoryDatabase(getApplicationContext());
+
+        populateDb();
+    }
+
+    private void populateDb() {
+        DatabaseInitializer.populateSync(mDb);
     }
 
     @Override
@@ -93,6 +107,7 @@ public class MainActivity extends BaseActivity implements MainContract.View, Nav
 
     @Override
     protected void onDestroy() {
+        AppDatabase.destroyInstance();
         super.onDestroy();
         presenter.detachView();
     }
