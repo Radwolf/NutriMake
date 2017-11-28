@@ -51,14 +51,14 @@ class DaoTest {
         db.getAlimentacionDao().insert(alimentacion);
     }
 
-    protected Cliente addCliente(final AppDatabase db, final String nombre,
+    protected Cliente addCliente(final AppDatabase db, final Long id, final String nombre,
                                  final String apellidos, final String telefono,
                                  final String email, final String documentoIdentidad,
                                  final String sexo, final Long edad, final Long peso,
                                  final Long altura, final Long imc, final Long benedite,
                                  final boolean ejercicio, final String tipoEjercicio,
                                  final Long frecuenciaEjercicio, final Biotipo biotipo) {
-        Cliente cliente = new Cliente();
+        Cliente cliente = new Cliente(id);
         cliente.nombre = nombre;
         cliente.apellidos = apellidos;
         cliente.telefono = telefono;

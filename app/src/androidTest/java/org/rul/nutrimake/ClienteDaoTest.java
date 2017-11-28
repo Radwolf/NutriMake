@@ -59,7 +59,7 @@ public class ClienteDaoTest extends DaoTest {
                 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L);
-        Cliente cliente1 = addCliente(db, "Jason", "Seaver", "670010101", null,
+        Cliente cliente1 = addCliente(db, 1L, "Jason", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, biotipo);
         List clientes = clienteDao.findAll();
@@ -78,7 +78,7 @@ public class ClienteDaoTest extends DaoTest {
                 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L);
-        Cliente cliente1 = addCliente(db, "Jason", "Seaver", "670010101", null,
+        Cliente cliente1 = addCliente(db, 1L,"Jason", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, biotipo);
         List clientes = clienteDao.findYoungerThan(40);
@@ -96,7 +96,7 @@ public class ClienteDaoTest extends DaoTest {
                 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L, 1L,
                 1L, 1L, 1L, 1L, 1L, 1L);
-        Cliente cliente = addCliente(db, "Jason", "Seaver", "670010101", null,
+        Cliente cliente = addCliente(db, 1L,"Jason", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, biotipo);
         List<Alimento> alimentos = new ArrayList<>();

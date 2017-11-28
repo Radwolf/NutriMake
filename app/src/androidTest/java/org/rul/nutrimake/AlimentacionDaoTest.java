@@ -63,7 +63,7 @@ public class AlimentacionDaoTest extends DaoTest {
 
     @Test
     public void shouldInsertClient(){
-        Cliente cliente = addCliente(db, "Jason", "Seaver", "670010101", null,
+        Cliente cliente = addCliente(db, 1L, "Jason", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, new Biotipo());
         addAlimentacion(db, cliente, "Alimentacion sana", true, new Date(), null);
@@ -76,7 +76,7 @@ public class AlimentacionDaoTest extends DaoTest {
     public void shouldFindUltimaAlimentacion(){
         String descripcionDieta = "Alimentacion sana 1";
         String descripcionDieta2 = "Alimentacion sana 2";
-        Cliente cliente = addCliente(db, "Jason", "Seaver", "670010101", null,
+        Cliente cliente = addCliente(db, 1L,"Jason", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, new Biotipo());
         addAlimentacion(db, cliente, descripcionDieta, true, new Date(), new Date());
@@ -90,7 +90,7 @@ public class AlimentacionDaoTest extends DaoTest {
     @Test
     public void shoulUpdateAlimentacion(){
         String descripcionDieta = "Alimentacion sana";
-        Cliente cliente = addCliente(db, "Jason", "Seaver", "670010101", null,
+        Cliente cliente = addCliente(db, 1L, "Jason", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, new Biotipo());
         addAlimentacion(db, cliente, descripcionDieta, true, new Date(), null);

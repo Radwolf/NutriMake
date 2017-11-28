@@ -58,7 +58,7 @@ public class AnaliticaDaoTest extends DaoTest {
 
     @Test
     public void shouldInsertClient(){
-        Cliente cliente = addCliente(db, "Jason", "Seaver", "670010101", null,
+        Cliente cliente = addCliente(db, 1L, "Jason", "Seaver", "670010101", null,
                 "12345678Z", "HOMBRE", (long) 40, (long) 70, (long) 170,
                 (long) 1, (long) 1, false, null, (long) 0, new Biotipo());
         addAnalitica(db, cliente, new Date(), "prueba");

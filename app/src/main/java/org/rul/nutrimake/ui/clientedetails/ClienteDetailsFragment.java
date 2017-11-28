@@ -75,7 +75,7 @@ public class ClienteDetailsFragment extends Fragment {
     }
 
     private void setCliente(Cliente cliente) {
-        toolbar.setTitle(cliente.nombre);
+        toolbar.setTitle(String.format("%s %s", cliente.nombre, cliente.apellidos));
         description.setText(cliente.documentoIdentidad);
     }
 }
