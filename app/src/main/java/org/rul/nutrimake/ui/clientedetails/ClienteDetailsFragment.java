@@ -28,6 +28,9 @@ public class ClienteDetailsFragment extends Fragment {
     @BindView(R.id.fragment_cliente_details__toolbar) Toolbar toolbar;
     @BindView(R.id.fragment_cliente_details__telefono) TextView telefono;
     @BindView(R.id.fragment_cliente_details__email) TextView email;
+    @BindView(R.id.fragment_cliente_details__edad) TextView edad;
+    @BindView(R.id.fragment_cliente_details__peso) TextView peso;
+    @BindView(R.id.fragment_cliente_details__altura) TextView altura;
 
     private Cliente cliente;
 
@@ -79,15 +82,14 @@ public class ClienteDetailsFragment extends Fragment {
         toolbar.setTitle(String.format("%s %s", cliente.nombre, cliente.apellidos));
         telefono.setText(cliente.telefono);
         email.setText(cliente.email);
+        edad.setText(String.valueOf(cliente.edad));
+        peso.setText(String.valueOf(cliente.peso));
+        altura.setText(String.valueOf(cliente.altura));
 /*
-        public String telefono;
-        public String email;
+
         public String documentoIdentidad;
         //Enum o lista_valor
         public String sexo;
-        public Long edad;
-        public Long peso;
-        public Long altura;
         public Long imc;
         public Long benedite;
         public boolean ejercicio;

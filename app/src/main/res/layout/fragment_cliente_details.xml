@@ -18,63 +18,144 @@
 
     </FrameLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/first_keyline">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="50"
+        android:clipToPadding="false"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:scrollbarStyle="outsideOverlay">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="32dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:paddingTop="16dp"
-            android:id="@+id/rel_layaout_telefono">
-
-            <ImageView
-                android:id="@+id/imageView_telefono"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_call_black_24dp" />
-
-            <com.actinarium.aligned.TextView
-                android:id="@+id/fragment_cliente_details__telefono"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignBottom="@+id/imageView_telefono"
-                android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/imageView_telefono"
-                android:text="670 04 09 00"
-                android:textSize="14sp"
-                app:lastLineDescent="8sp"
-                app:leading="24sp" />
-        </RelativeLayout>
+                android:layout_height="72dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="72dp"
-            android:paddingTop="16dp"
-            android:id="@+id/rel_layout_email"
-            android:layout_below="@id/rel_layaout_telefono">
+                <ImageView
+                    android:id="@+id/imageView_telefono"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/ic_phone_black_24dp" />
 
-            <ImageView
-                android:id="@+id/imageView_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:src="@drawable/ic_email_black_24dp" />
+                <com.actinarium.aligned.TextView
+                    android:id="@+id/fragment_cliente_details__telefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:text="670 04 09 00"
+                    android:textSize="14sp"
+                    app:lastLineDescent="8sp"
+                    app:leading="24sp" />
+            </LinearLayout>
 
-            <com.actinarium.aligned.TextView
-                android:id="@+id/fragment_cliente_details__email"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignBottom="@+id/imageView_email"
-                android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/imageView_email"
-                android:text="raul.gomo@gmail.com"
-                android:textSize="14sp"
-                app:lastLineDescent="8sp"
-                app:leading="24sp" />
-        </RelativeLayout>
+                android:layout_height="72dp">
 
-    </RelativeLayout>
+                <ImageView
+                    android:id="@+id/imageView_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/ic_email_black_24dp" />
+
+                <com.actinarium.aligned.TextView
+                    android:id="@+id/fragment_cliente_details__email"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:text="raul.gomo@gmail.com"
+                    android:textSize="14sp"
+                    app:lastLineDescent="8sp"
+                    app:leading="24sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/ic_wc_black_24dp" />
+
+                <com.actinarium.aligned.TextView
+                    android:id="@+id/fragment_cliente_details__sexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:text="Hombre"
+                    android:textSize="14sp"
+                    app:lastLineDescent="8sp"
+                    app:leading="24sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:orientation="horizontal">
+
+                <com.actinarium.aligned.TextView
+                    android:id="@+id/fragment_cliente_details__edad"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="56dp"
+                    android:text="25"
+                    android:textSize="14sp"
+                    app:lastLineDescent="8sp"
+                    app:leading="24sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:src="@drawable/ic_straighten_black_24dp" />
+
+                <com.actinarium.aligned.TextView
+                    android:id="@+id/fragment_cliente_details__peso"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:text="70"
+                    android:textSize="14sp"
+                    app:lastLineDescent="8sp"
+                    app:leading="24sp" />
+                <com.actinarium.aligned.TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=" kg"
+                    android:textSize="14sp"
+                    app:lastLineDescent="8sp"
+                    app:leading="24sp" />
+                <com.actinarium.aligned.TextView
+                    android:id="@+id/fragment_cliente_details__altura"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="72dp"
+                    android:text="1'71"
+                    android:textSize="14sp"
+                    app:lastLineDescent="8sp"
+                    app:leading="24sp" />
+                <com.actinarium.aligned.TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=" cm"
+                    android:textSize="14sp"
+                    app:lastLineDescent="8sp"
+                    app:leading="24sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
