@@ -2,160 +2,165 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="240dp"
+        android:layout_height="236dp"
         android:background="@color/black_transparent_12p">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/fragment_cliente_details__toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"/>
+            android:layout_height="?actionBarSize" />
 
     </FrameLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="50"
         android:clipToPadding="false"
         android:paddingBottom="16dp"
         android:paddingTop="16dp"
         android:scrollbarStyle="outsideOverlay">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="32dp">
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="72dp">
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/fragmente_cliente_details"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/imageView_telefono"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:src="@drawable/ic_phone_black_24dp" />
+            <ImageView
+                android:id="@+id/imageView_telefono"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_phone_black_24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_cliente_details__telefono"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <com.actinarium.aligned.TextView
-                    android:id="@+id/fragment_cliente_details__telefono"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                    android:text="670 04 09 00"
-                    android:textSize="14sp"
-                    app:lastLineDescent="8sp"
-                    app:leading="24sp" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/fragment_cliente_details__telefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:text="670 04 09 00"
+                android:textSize="14sp"
+                app:layout_constraintDimensionRatio="h,1:1"
+                app:layout_constraintStart_toEndOf="@+id/imageView_telefono"
+                tools:layout_editor_absoluteY="21dp" />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="72dp">
+            <ImageView
+                android:id="@+id/imageView_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_email_black_24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_cliente_details__email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_telefono" />
 
-                <ImageView
-                    android:id="@+id/imageView_email"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:src="@drawable/ic_email_black_24dp" />
+            <TextView
+                android:id="@+id/fragment_cliente_details__email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:text="raul.gomo@gmail.com"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView_email"
+                tools:layout_editor_absoluteY="75dp" />
 
-                <com.actinarium.aligned.TextView
-                    android:id="@+id/fragment_cliente_details__email"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"
-                    android:text="raul.gomo@gmail.com"
-                    android:textSize="14sp"
-                    app:lastLineDescent="8sp"
-                    app:leading="24sp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:src="@drawable/ic_wc_black_24dp" />
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_wc_black_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView_email" />
 
-                <com.actinarium.aligned.TextView
-                    android:id="@+id/fragment_cliente_details__sexo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"
-                    android:text="Hombre"
-                    android:textSize="14sp"
-                    app:lastLineDescent="8sp"
-                    app:leading="24sp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/fragment_cliente_details__sexo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:text="Hombre"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                app:layout_constraintStart_toEndOf="@+id/imageView3" />
 
-                <com.actinarium.aligned.TextView
-                    android:id="@+id/fragment_cliente_details__edad"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="56dp"
-                    android:text="25"
-                    android:textSize="14sp"
-                    app:lastLineDescent="8sp"
-                    app:leading="24sp" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="72dp"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/activity_horizontal_margin"
-                    android:src="@drawable/ic_straighten_black_24dp" />
+            <TextView
+                android:id="@+id/fragment_cliente_details__edad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="32dp"
+                android:text="25"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_cliente_details__sexo" />
 
-                <com.actinarium.aligned.TextView
-                    android:id="@+id/fragment_cliente_details__peso"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"
-                    android:text="70"
-                    android:textSize="14sp"
-                    app:lastLineDescent="8sp"
-                    app:leading="24sp" />
-                <com.actinarium.aligned.TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text=" kg"
-                    android:textSize="14sp"
-                    app:lastLineDescent="8sp"
-                    app:leading="24sp" />
-                <com.actinarium.aligned.TextView
-                    android:id="@+id/fragment_cliente_details__altura"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="72dp"
-                    android:text="1'71"
-                    android:textSize="14sp"
-                    app:lastLineDescent="8sp"
-                    app:leading="24sp" />
-                <com.actinarium.aligned.TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text=" cm"
-                    android:textSize="14sp"
-                    app:lastLineDescent="8sp"
-                    app:leading="24sp" />
-            </LinearLayout>
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_straighten_black_24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_cliente_details__edad" />
+
+            <TextView
+                android:id="@+id/fragment_cliente_details__peso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:text="70"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text=" kg"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_cliente_details__peso"
+                app:layout_constraintStart_toEndOf="@+id/fragment_cliente_details__peso"
+                app:layout_constraintTop_toTopOf="@+id/fragment_cliente_details__peso" />
+
+            <TextView
+                android:id="@+id/fragment_cliente_details__altura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="1'71"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView3"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text=" cm"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_cliente_details__altura"
+                app:layout_constraintStart_toEndOf="@+id/fragment_cliente_details__altura"
+                app:layout_constraintTop_toTopOf="@+id/fragment_cliente_details__altura" />
+        </android.support.constraint.ConstraintLayout>
     </ScrollView>
 </LinearLayout>
