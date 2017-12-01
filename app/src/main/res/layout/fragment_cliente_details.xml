@@ -24,8 +24,6 @@
         android:layout_height="match_parent"
         android:layout_weight="50"
         android:clipToPadding="false"
-        android:paddingBottom="16dp"
-        android:paddingTop="16dp"
         android:scrollbarStyle="outsideOverlay">
 
         <android.support.constraint.ConstraintLayout
@@ -36,131 +34,181 @@
             <ImageView
                 android:id="@+id/imageView_telefono"
                 android:layout_width="wrap_content"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:src="@drawable/ic_phone_black_24dp"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_cliente_details__telefono"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintLeft_creator="1"
+                app:layout_constraintLeft_toLeftOf="@id/fragmente_cliente_details"
+                app:layout_editor_absoluteX="16dp"
+                app:layout_editor_absoluteY="16dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_constraintBaseline_creator="0"
+                tools:layout_constraintLeft_creator="0"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="16dp" />
 
             <TextView
                 android:id="@+id/fragment_cliente_details__telefono"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
                 android:text="670 04 09 00"
-                android:textSize="14sp"
-                app:layout_constraintDimensionRatio="h,1:1"
-                app:layout_constraintStart_toEndOf="@+id/imageView_telefono"
-                tools:layout_editor_absoluteY="21dp" />
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_editor_absoluteX="73dp"
+                app:layout_editor_absoluteY="16dp"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="0" />
 
             <ImageView
                 android:id="@+id/imageView_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:src="@drawable/ic_email_black_24dp"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_cliente_details__email"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_telefono" />
+                app:layout_constraintBaseline_creator="1"
+                app:layout_constraintLeft_creator="1"
+                app:layout_constraintLeft_toLeftOf="@+id/fragmente_cliente_details"
+                app:layout_editor_absoluteX="16dp"
+                app:layout_editor_absoluteY="72dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_constraintBaseline_creator="0"
+                tools:layout_constraintLeft_creator="0"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="72dp" />
 
             <TextView
                 android:id="@+id/fragment_cliente_details__email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
                 android:text="raul.gomo@gmail.com"
-                android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@+id/imageView_email"
-                tools:layout_editor_absoluteY="75dp" />
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_editor_absoluteX="73dp"
+                app:layout_editor_absoluteY="72dp"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="0" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/imageView_sexo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:src="@drawable/ic_wc_black_24dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView_email" />
+                app:layout_constraintBaseline_creator="1"
+                app:layout_constraintLeft_creator="1"
+                app:layout_constraintLeft_toLeftOf="@+id/fragmente_cliente_details"
+                app:layout_editor_absoluteX="16dp"
+                app:layout_editor_absoluteY="128dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_constraintBaseline_creator="0"
+                tools:layout_constraintLeft_creator="0"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="128dp" />
 
             <TextView
                 android:id="@+id/fragment_cliente_details__sexo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
                 android:text="Hombre"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-                app:layout_constraintStart_toEndOf="@+id/imageView3" />
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_editor_absoluteX="73dp"
+                app:layout_editor_absoluteY="128dp"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="0" />
 
             <TextView
                 android:id="@+id/fragment_cliente_details__edad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="72dp"
-                android:layout_marginTop="32dp"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
                 android:text="25"
-                android:textSize="14sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_cliente_details__sexo" />
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_editor_absoluteX="73dp"
+                app:layout_editor_absoluteY="184dp"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="0" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/imageView_medidas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:src="@drawable/ic_straighten_black_24dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_cliente_details__edad" />
+                app:layout_constraintBaseline_creator="1"
+                app:layout_constraintLeft_creator="1"
+                app:layout_constraintLeft_toLeftOf="@+id/fragmente_cliente_details"
+                app:layout_editor_absoluteX="16dp"
+                app:layout_editor_absoluteY="240dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_constraintBaseline_creator="0"
+                tools:layout_constraintLeft_creator="0"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="240dp" />
 
             <TextView
                 android:id="@+id/fragment_cliente_details__peso"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
+                android:layout_width="75dp"
+                android:layout_height="24dp"
+                android:ems="10"
                 android:text="70"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-                app:layout_constraintHorizontal_chainStyle="spread_inside"
-                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                app:layout_constraintTop_toTopOf="@+id/imageView4" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="fragment_cliente_details__peso_u"
+                app:layout_constraintStart_toEndOf="imageView_medidas"
+                app:layout_constraintTop_toBottomOf="fragment_cliente_details__edad"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="0" />
 
             <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:id="@+id/fragment_cliente_details__peso_u"
+                android:layout_width="75dp"
+                android:layout_height="24dp"
+                android:ems="10"
                 android:text=" kg"
-                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/fragment_cliente_details__peso"
-                app:layout_constraintStart_toEndOf="@+id/fragment_cliente_details__peso"
-                app:layout_constraintTop_toTopOf="@+id/fragment_cliente_details__peso" />
+                app:layout_constraintEnd_toStartOf="@id/fragment_cliente_details__altura"
+                app:layout_constraintStart_toEndOf="@id/fragment_cliente_details__peso"
+                tools:layout_constraintTop_creator="0" />
 
             <TextView
                 android:id="@+id/fragment_cliente_details__altura"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_width="75dp"
+                android:layout_height="24dp"
+                android:ems="10"
                 android:text="1'71"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView3"
-                app:layout_constraintStart_toEndOf="@+id/textView3"
-                app:layout_constraintTop_toTopOf="@+id/textView3" />
+                app:layout_constraintBottom_toBottomOf="@+id/fragment_cliente_details__peso_u"
+                app:layout_constraintEnd_toStartOf="@id/fragment_cliente_details__altura_u"
+                app:layout_constraintStart_toEndOf="@id/fragment_cliente_details__peso_u"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="0" />
 
             <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:id="@+id/fragment_cliente_details__altura_u"
+                android:layout_width="75dp"
+                android:layout_height="24dp"
+                android:ems="10"
                 android:text=" cm"
-                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="@+id/fragment_cliente_details__altura"
-                app:layout_constraintStart_toEndOf="@+id/fragment_cliente_details__altura"
-                app:layout_constraintTop_toTopOf="@+id/fragment_cliente_details__altura" />
+                app:layout_constraintStart_toEndOf="@id/fragment_cliente_details__altura"
+                tools:layout_constraintLeft_creator="1"
+                tools:layout_constraintRight_creator="1"
+                tools:layout_constraintTop_creator="0" />
+
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 </LinearLayout>
