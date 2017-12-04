@@ -25,12 +25,12 @@ public class ClienteDetailsFragment extends Fragment {
 
     private static final String KEY_CLIENTE = "key_cliente";
 
-    @BindView(R.id.fragment_cliente_details__toolbar) Toolbar toolbar;
-    @BindView(R.id.fragment_cliente_details__telefono) TextView telefono;
-    @BindView(R.id.fragment_cliente_details__email) TextView email;
-    @BindView(R.id.fragment_cliente_details__edad) TextView edad;
-    @BindView(R.id.fragment_cliente_details__peso) TextView peso;
-    @BindView(R.id.fragment_cliente_details__altura) TextView altura;
+    @BindView(R.id.fragment_cliente__nombre_completo) TextView nombreCompleto;
+    @BindView(R.id.fragment_cliente__telefono) TextView telefono;
+    @BindView(R.id.fragment_cliente__email) TextView email;
+    @BindView(R.id.fragment_cliente__edad) TextView edad;
+    @BindView(R.id.fragment_cliente__peso) TextView peso;
+    @BindView(R.id.fragment_cliente__altura) TextView altura;
 
     private Cliente cliente;
 
@@ -65,26 +65,26 @@ public class ClienteDetailsFragment extends Fragment {
     }
 
     private void setupToolbar() {
-        toolbar.inflateMenu(R.menu.person_details);
+//        toolbar.inflateMenu(R.menu.person_details);
 
         if (!((MainActivity) getActivity()).getContainersLayout().hasTwoColumns()) {
-            toolbar.setNavigationIcon(R.drawable.ic_back_24dp);
-            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    getActivity().onBackPressed();
-                }
-            });
+//            toolbar.setNavigationIcon(R.drawable.ic_back_24dp);
+//            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    getActivity().onBackPressed();
+//                }
+//            });
         }
     }
 
     private void setCliente(Cliente cliente) {
-        toolbar.setTitle(String.format("%s %s", cliente.nombre, cliente.apellidos));
+        nombreCompleto.setText(String.format("%s %s", cliente.nombre, cliente.apellidos));
         telefono.setText(cliente.telefono);
         email.setText(cliente.email);
         edad.setText(String.valueOf(cliente.edad));
-        peso.setText(String.valueOf(cliente.peso));
-        altura.setText(String.valueOf(cliente.altura));
+        peso.setText(String.format("%s Kg", String.valueOf(cliente.peso)));
+        altura.setText(String.format("%s cm", String.valueOf(cliente.altura)));
 /*
 
         public String documentoIdentidad;

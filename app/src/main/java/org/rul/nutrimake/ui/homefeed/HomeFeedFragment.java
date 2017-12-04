@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 
 public class HomeFeedFragment extends Fragment {
 
-    @BindView(R.id.fragment_empty__title) TextView title;
+    @BindView(R.id.fragment_cliente__telefono) TextView title;
 
     public static HomeFeedFragment newInstance() {
         HomeFeedFragment fragment = new HomeFeedFragment();
