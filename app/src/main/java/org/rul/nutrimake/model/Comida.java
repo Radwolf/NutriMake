@@ -21,8 +21,10 @@ import java.time.LocalDate;
 })
 public class Comida {
 
-    public @PrimaryKey(autoGenerate = true) String id;
+    @PrimaryKey(autoGenerate = true) String id;
     public Long alimentacionId;
+    //Enum o lista_valor
+    public String tipoComida;
     public Long numeroDiaPlan;
 
 }

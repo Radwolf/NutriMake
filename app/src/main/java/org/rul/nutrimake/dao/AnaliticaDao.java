@@ -2,6 +2,7 @@ package org.rul.nutrimake.dao;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.TypeConverters;
@@ -22,18 +23,36 @@ import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 @TypeConverters(DateConverter.class)
 public interface AnaliticaDao {
 
+    //Añadir Analítica a un cliente
+    @Insert(onConflict = REPLACE) //Modificar Analítica
+    void insert(Analitica analitica);
+    
+    //Listar todas las Analíticas
     @Query("SELECT * From analitica")
     List<Analitica> findAll();
 
-    @Insert(onConflict = REPLACE)
-    void insertAnalitica(Analitica analitica);
-
-    @Query("DELETE FROM analitica")
-    void deleteAll();
-
+    //Recuperar una Analítica por id
+    @Query("SELECT * FROM analitica WHERE id = :id")
+    Analitica findById(Long id);
+    
+    //Listar todas las Analíticas de un cliente
     @Query("SELECT * FROM analitica WHERE clienteId = :clienteId")
     List<Analitica> findByCliente(Long clienteId);
 
+    //Recuperar la última Analítica de un Cliente
     @Query("SELECT * FROM analitica WHERE clienteId = :clienteId ORDER BY fecha DESC")
-    Analitica getLastAnalitica(Long clienteId);
+    Analitica findByClienteLastAnalitica(Long clienteId);
+
+    //Eliminar una Analítica
+    @Delete
+    void delete(Analitica analitica);
+    
+    ///////////////////////////////
+    // Otros métodos             //
+    ///////////////////////////////
+    
+    @Query("DELETE FROM analitica")
+    void deleteAll();
+
+
 }

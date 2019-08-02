@@ -11,7 +11,7 @@ import android.arch.persistence.room.PrimaryKey;
 public class Biotipo {
 
     @PrimaryKey
-    public int biotioId;
+    public Long id;
     public String descripcion;
     public Long pesoCorporal;
     public Long indiceEnergia;

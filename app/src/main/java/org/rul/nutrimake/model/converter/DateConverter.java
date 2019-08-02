@@ -2,6 +2,10 @@ package org.rul.nutrimake.model.converter;
 
 import android.arch.persistence.room.TypeConverter;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.util.Date;
 
 /**
@@ -18,4 +22,5 @@ public class DateConverter {
     public static Long toTimestamp(Date date) {
         return date == null ? null : date.getTime();
     }
+
 }

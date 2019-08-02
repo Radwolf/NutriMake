@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
 /**
  * Created by Rul on 17/11/2017.
@@ -18,6 +19,8 @@ import android.arch.persistence.room.PrimaryKey;
                         childColumns = "creenciaId")})
 public class ClienteCreencia {
 
+    @NonNull
     public Long clienteId;
+    @NonNull
     public Long creenciaId;
 }

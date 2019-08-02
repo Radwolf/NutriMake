@@ -5,37 +5,52 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
+import org.rul.nutrimake.model.Alimento;
 import org.rul.nutrimake.model.Cliente;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
+
 import static android.arch.persistence.room.OnConflictStrategy.IGNORE;
+import static android.arch.persistence.room.OnConflictStrategy.REPLACE;
 
 /**
  * Created by Rul on 02/11/2017.
  */
 @Dao
 public interface ClienteDao {
+    
+    //Nuevo Cliente    
+    @Insert(onConflict = REPLACE) //Modificar datos Cliente
+    void insert(Cliente cliente);
 
-    @Insert(onConflict = IGNORE)
-    void insertCliente(Cliente cliente);
-
-    @Query("select * from cliente where id = :id")
-    Cliente loadClienteById(int id);
-
-    @Delete
-    void deleteCliente(Cliente cliente);
-
-    @Insert(onConflict = IGNORE)
-    void insertOrReplaceClientes(Cliente... clientes);
-
-
-    // Otros metodos para pruebas //
+    //Lista Clientes
     @Query("select * from cliente")
-    List<Cliente> loadAllClientes();
+    List<Cliente> findAll();
 
+    //Lista Clientes
+    @Query("select * from cliente")
+    Flowable<List<Cliente>> fFindAll();
+    
+    //Recuperar un Cliente por id
+    @Query("select * from cliente where id = :id")
+    Cliente findById(int id);
+
+    //Recuperar un Cliente por nombre y/o apellidos
     @Query("select * from cliente where nombre = :nombre and apellidos = :apellidos")
     List<Cliente> findByNameAndLastName(String nombre, String apellidos);
+    
+    //Eliminar un Cliente
+    @Delete
+    void delete(Cliente cliente);
+
+    ////////////////////////////////
+    // Otros metodos para pruebas //
+    ////////////////////////////////
+    
+    @Insert(onConflict = IGNORE)
+    void insertOrReplaceClientes(Cliente... clientes);
 
     @Query("delete from cliente where nombre like :badName OR apellidos like :badName")
     int deleteClientesByNombre(String badName);
